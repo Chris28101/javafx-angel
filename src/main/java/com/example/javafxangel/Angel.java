@@ -15,7 +15,7 @@ import javafx.scene.effect.Lighting;
 
 public class Angel extends Application {
     @Override
-    public void start(Stage stage) throws Exception{
+    public void start(Stage stage) throws Exception {
         Group group = new Group();
 
         //scene setup
@@ -23,39 +23,50 @@ public class Angel extends Application {
         stage.setScene(scene);
         stage.setTitle("Angelic");
         stage.show();
-        drawAngel(437.5,240,50,group);
+
+
+        int sceneWidth = 875;
+        int sceneHeight = 480;
+        for (int rowY = 100; rowY < sceneHeight -150; rowY += 150) {
+            for (int rowX = 100; rowX < sceneWidth - 100; rowX += 150) {
+                drawAngel(rowX, rowY, 50, group);{
+
+                }
+            }
+        }
 
 
     }
-    public void drawAngel(double x, double y , double size , Group g){
+
+    public void drawAngel(double x, double y, double size, Group g) {
         //circle
-        Circle circle = new Circle(x,y,size, Color.GOLD);
+        Circle circle = new Circle(x, y, size, Color.GOLD);
         g.getChildren().add(circle);
         circle.setStrokeWidth(3);
         circle.setStroke(Color.SADDLEBROWN);
 
         //eyes
-        Ellipse lEye = new Ellipse(x-22.5,y-7,12,12);
+        Ellipse lEye = new Ellipse(x - 22.5, y - 7, 12, 12);
         lEye.setFill(Color.SADDLEBROWN);
         g.getChildren().add(lEye);
 
         //inside of leye
-        Ellipse inLEye = new Ellipse(415,y-2.5,11,9);
+        Ellipse inLEye = new Ellipse(x - 22.5, y - 2.5, 11, 9);
         inLEye.setFill(Color.GOLD);
         g.getChildren().add(inLEye);
 
         //right eye
-        Ellipse rEye = new Ellipse(455,y-7,12,12);
+        Ellipse rEye = new Ellipse(x + 22.5, y - 7, 12, 12);
         rEye.setFill(Color.SADDLEBROWN);
         g.getChildren().add(rEye);
 
         //inREye
-        Ellipse inREye = new Ellipse(455,y-2.5,11,9);
+        Ellipse inREye = new Ellipse(x + 22.5, y - 2.5, 11, 9);
         inREye.setFill(Color.GOLD);
         g.getChildren().add(inREye);
 
         //halo
-        Ellipse halo = new Ellipse(437.5,180, 40,30);
+        Ellipse halo = new Ellipse(x, y - 60, 40, 30);
         halo.setFill(Color.TRANSPARENT);
         halo.setStroke(Color.ROYALBLUE);
         halo.setStrokeWidth(10);
@@ -80,12 +91,12 @@ public class Angel extends Application {
         g.getChildren().add(halo);
 
         //smile
-        Ellipse smile = new Ellipse(437,264,25,15);
+        Ellipse smile = new Ellipse(x, y + 25, 25, 15);
         smile.setFill(Color.SADDLEBROWN);
         g.getChildren().add(smile);
 
         //inside smile
-        Ellipse inSmile = new Ellipse(437,259,28,12);
+        Ellipse inSmile = new Ellipse(x, y + 20, 28, 12);
         inSmile.setFill(Color.GOLD);
         g.getChildren().add(inSmile);
 
